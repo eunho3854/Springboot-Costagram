@@ -46,6 +46,8 @@ public class User {
 	
 	private String phone;
 	
+	private String profileImageUrl;
+	
 	private String gender;
 	
 	private String profileImage;
