@@ -4,6 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cos.costagram.domain.user.RoleType;
 import com.cos.costagram.domain.user.User;
 import com.cos.costagram.domain.user.UserRepository;
 
@@ -23,6 +24,7 @@ public class AuthService {
 		String encPassword = bCryptPasswordEncoder.encode(rawPassword);
 		
 		user.setPassword(encPassword);
+		user.setRole(RoleType.USER);
 		
 		userRepository.save(user);
 		

@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -50,7 +52,8 @@ public class User {
 	
 	private String provider; // 제공자 Google, Facebook, Naver
 	
-	private String role; // USER, ADMIN
+	@Enumerated(EnumType.STRING)
+	private RoleType role; // USER, ADMIN
 	
 	@CreationTimestamp
 	private Timestamp createDate;
