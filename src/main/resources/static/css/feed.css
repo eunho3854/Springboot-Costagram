@@ -163,6 +163,17 @@
   margin-bottom: 5px;
 }
 
+.main
+  .container
+  .story-list
+  .story-list__item
+  .sl__item__contents
+  .sl__item__contents__tags {
+  padding: 5px 15px;
+  color: #0080ff;
+  font-size: 14px;
+}
+
 /*댓글 삭제버튼*/
 .main
   .container

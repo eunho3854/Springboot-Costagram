@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal" />
+</sec:authorize>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +37,7 @@
                 <ul class="navi-list">
                     <li class="navi-item"><a href="/image/feed"><i class="fas fa-home"></i></a></li>
                     <li class="navi-item"><a href="/image/explore"><i class="far fa-compass"></i></a></li>
-                    <li class="navi-item"><a href="/user/1"><i class="far fa-user"></i></a></li>
+                    <li class="navi-item"><a href="/user/${principal.user.id}"><i class="far fa-user"></i></a></li>
                 </ul>
             </nav>
         </div>

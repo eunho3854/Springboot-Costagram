@@ -88,3 +88,10 @@ spring:
 file:
   path: C:/Users/Administrator/Documents/insta/costagram/src/main/resources/upload/
 ```
+
+### 태그 라이브러리
+
+``` jsp
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+```
