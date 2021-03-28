@@ -5,8 +5,8 @@
 
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="principal" />
-</sec:authorize>
-
+</sec:authorize>    
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,15 +14,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photogram</title>
+    
     <!-- Style -->
-    <link rel="stylesheet" href="/css/feed.css"/>
-    <link rel="stylesheet" href="/css/explor.css"/>
-    <link rel="stylesheet" href="/css/profile.css"/>
-    <link rel="stylesheet" href="/css/upload.css"/>
-    <link rel="stylesheet" href="/css/profileSetting.css"/>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/images/insta.svg"/>
-    <!-- Fontawesome -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/feed.css">
+    <link rel="stylesheet" href="/css/explore.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/upload.css">
+    <link rel="stylesheet" href="/css/profileSetting.css">
+	<link rel="shortcut icon" href="/images/insta.svg">
+	
+<!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
