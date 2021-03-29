@@ -13,4 +13,10 @@ public interface FollowRepository extends JpaRepository<Follow, Integer>{
 	@Modifying
 	@Query(value = "DELETE FROM follow WHERE fromUserId = :fromUserId AND toUserId = :toUserId", nativeQuery = true)
 	int mUnFollow(int fromUserId, int toUserId);
+	
+	@Query(value = "SELECT count(*) FROM follow WHERE fromUserId= :principalId AND toUserId = :userId", nativeQuery = true)
+	int mFollowState(int principalId, int userId);
+	
+	@Query(value = "SELECT count(*) FROM follow WHERE fromUserId = :userId", nativeQuery = true)
+	int mFollowCount(int userId);
 }
