@@ -24,7 +24,7 @@
 
 					<!--게시물이미지 영역-->
 					<div class="sl__item__img">
-						<img src="/images/home3.jpg" alt="" />
+						<img src="/upload/${image.postImageUrl}" alt="" />
 					</div>
 
 					<!--게시물 내용 + 댓글 영역-->
@@ -32,18 +32,29 @@
 						<!-- 하트모양 버튼 박스 -->
 						<div class="sl__item__contents__icon">
 							<button onclick="clickBtn()">
-								<i class="far fa-heart"></i>
+							 <c:choose>
+							   <c:when test="${image.likeState}">
+							     <i class="fas fa-heart active"></i>
+							   </c:when>
+							   <c:otherwise>
+							     <i class="far fa-heart"></i>
+							   </c:otherwise>
+							 </c:choose>
 							</button>
 						</div>
 						<!-- 하트모양 버튼 박스 end -->
 
 						<!--좋아요-->
-						<span class="like"><b>1</b>likes</span>
+						<span class="like"><b>${image.likeCount}</b>likes</span>
 						<!--좋아요end-->
 
 						<!--태그박스-->
 						<div class="sl__item__contents__tags">
-							<p>#운동 #공부 #음식</p>
+							<p>
+							 <c:forEach var="tag" items="${image.tags}">
+							   #${tag.name}
+							 </c:forEach>
+							</p>
 						</div>
 						<!--태그박스end-->
 
