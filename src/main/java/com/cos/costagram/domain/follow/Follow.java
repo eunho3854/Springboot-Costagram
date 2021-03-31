@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -24,6 +26,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table (
+		name = "follow",
+		uniqueConstraints = {
+				@UniqueConstraint(
+						name = "follow_uk",
+						columnNames = {"fromUserId", "toUserId"}
+						)
+				}
+		)
 public class Follow {
 
 	@Id
