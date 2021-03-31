@@ -15,7 +15,7 @@ function clickBtn() {
 function addComment(postId, username) {
   // value : 댓글을 쓸 게시글
   let commentInput = event.path[1].children[0];
-  let commentList = event.path[2].children[3];
+  let commentList = event.path[2].children[4];
 
   // 유저 아이디 필요하면 매개변수로 받아와서 넣으면 됨.
   let _data = {

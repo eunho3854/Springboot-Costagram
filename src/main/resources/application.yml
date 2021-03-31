@@ -37,4 +37,4 @@ spring:
       password: 1234   
 
 file:
-  path: C:/Users/Administrator/Documents/insta/costagram/src/main/resources/upload/
+  path: C:\Users\dita_808\git\Springboot-Costagram/src/main/resources/upload/
