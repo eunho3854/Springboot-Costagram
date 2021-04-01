@@ -27,6 +27,11 @@ public class ImageService {
 	private final ImageRepository imageRepository;
 	private final TagRepository tagRepository;
 	
+	@Transactional(readOnly = true)
+	public List<Image> 인기사진(int principalId){
+		return imageRepository.mExplore(principalId);
+	}
+	
 	@Value("${file.path}") // @value + $() => application.yml 파일에 접근 가능
 	private String uploadFolder;
 	

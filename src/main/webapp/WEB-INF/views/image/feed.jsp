@@ -49,7 +49,7 @@
 						<!-- 하트모양 버튼 박스 end -->
 
 						<!--좋아요-->
-						<span class="like"><b>${image.likeCount}</b>likes</span>
+						<span class="like"><b id = "like_count_${image.id}">${image.likeCount}</b>likes</span>
 						<!--좋아요end-->
 
 						<!--태그박스-->
