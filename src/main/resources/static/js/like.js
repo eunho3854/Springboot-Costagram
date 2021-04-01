@@ -1,14 +1,34 @@
-function clickBtn() {
+function likeOrUnLike(imageId) {
   let _buttonI = event.target;
 
   if (_buttonI.classList.contains("far")) {
-    _buttonI.classList.add("fas");
-    _buttonI.classList.add("active");
-    _buttonI.classList.remove("far");
+    $.ajax({
+      type: "POST",
+      url: `/image/${imageId}/likes`,
+      dataType: "json"
+    }).done(res=>{
+      console.log(res);
+        _buttonI.classList.add("fas");
+        _buttonI.classList.add("active");
+        _buttonI.classList.remove("far");
+        let likeCountStr  = $(`#like_count-${imageId}`).text();
+        let likeCount = Number(likeCountStr) + 1;
+        $(`#like_count-${imageId}`).text(likeCount);
+    });
   } else {
-    _buttonI.classList.remove("fas");
-    _buttonI.classList.remove("active");
-    _buttonI.classList.add("far");
+    $.ajax({
+      type: "DELETE",
+      url: `/image/${imageId}/likes`,
+      dataType: "json"
+    }).done(res=>{
+      console.log(res);
+        _buttonI.classList.remove("fas");
+        _buttonI.classList.remove("active");
+        _buttonI.classList.add("far");
+        let likeCountStr  = $(`#like_count-${imageId}`).text();
+        let likeCount = Number(likeCountStr) - 1;
+        $(`#like_count-${imageId}`).text(likeCount);
+    });
   }
 }
 

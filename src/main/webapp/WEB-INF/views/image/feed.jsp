@@ -31,16 +31,20 @@
 					<div class="sl__item__contents">
 						<!-- 하트모양 버튼 박스 -->
 						<div class="sl__item__contents__icon">
-							<button onclick="clickBtn()">
+							
 							 <c:choose>
-							   <c:when test="${image.likeState}">
-							     <i class="fas fa-heart active"></i>
-							   </c:when>
-							   <c:otherwise>
-							     <i class="far fa-heart"></i>
-							   </c:otherwise>
-							 </c:choose>
-							</button>
+                  
+                  <c:when test="${image.likeState}">
+                    <button onclick="likeOrUnLike(${image.id})">
+                      <i class="fas fa-heart active"></i>
+                    </button>
+                  </c:when>
+                  <c:otherwise>
+                    <button onclick="likeOrUnLike(${image.id})">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </c:otherwise>
+                </c:choose>
 						</div>
 						<!-- 하트모양 버튼 박스 end -->
 
