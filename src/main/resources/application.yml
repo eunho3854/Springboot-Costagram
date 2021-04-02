@@ -41,4 +41,4 @@ spring:
             - public_profile    
 
 file:
-  path: C:\Users\dita_808\git\Springboot-Costagram/src/main/resources/upload/
+  path: C:\Users\Administrator\Documents\insta\costagram/src/main/resources/upload/

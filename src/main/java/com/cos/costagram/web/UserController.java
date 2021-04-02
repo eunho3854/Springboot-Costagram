@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.costagram.config.auth.PrincipalDetails;
+import com.cos.costagram.domain.user.User;
 import com.cos.costagram.service.FollowService;
 import com.cos.costagram.service.UserService;
 import com.cos.costagram.web.dto.CMRespDto;
@@ -37,6 +39,14 @@ public class UserController {
 	@GetMapping("/user/{id}/profileSetting")
 	public String profileSetting(@PathVariable int id) {
 		return "user/profileSetting";
+	}
+	
+	@PutMapping("/user/{id}")
+	public @ResponseBody CMRespDto<?> profileUpdate(@PathVariable int id, User user,@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		User userEntity = userService.회원수정(id, user);
+		principalDetails.setUser(userEntity);
+		
+		return new CMRespDto<>(1, null);
 	}
 	
 
