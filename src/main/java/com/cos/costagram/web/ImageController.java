@@ -1,5 +1,9 @@
 package com.cos.costagram.web;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.costagram.config.auth.PrincipalDetails;
+import com.cos.costagram.domain.image.Image;
 import com.cos.costagram.service.ImageService;
 import com.cos.costagram.service.LikesService;
 import com.cos.costagram.web.dto.CMRespDto;
@@ -28,13 +33,16 @@ public class ImageController {
 	private final LikesService likesService;
 	
 	@GetMapping({"/", "/image/feed"})
-	public String feed(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
-		
-		// ssar이 누구를 팔로우 했는지 정보를 알아야함. -> cos 
-		// ssar -> image 1(cos), image 2(cos)
-		model.addAttribute("images", imageService.피드이미지(principalDetails.getUser().getId()));
-		
+	public String feed() {
 		return "image/feed";
+	}
+	
+	@GetMapping("/image")
+	public @ResponseBody CMRespDto<?> image(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails, @PageableDefault(size = 3, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+		
+		Page<Image> pages = imageService.피드이미지(principalDetails.getUser().getId(), pageable);
+		
+		return new CMRespDto<>(1, pages);
 	}
 	
 	@GetMapping("/image/explore")

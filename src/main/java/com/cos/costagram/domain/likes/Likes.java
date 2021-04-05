@@ -15,6 +15,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.cos.costagram.domain.image.Image;
 import com.cos.costagram.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,6 +47,7 @@ public class Likes {
 	@JoinColumn(name = "imageId")
 	private Image image;
 	
+	@JsonIgnoreProperties({"images"})
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;

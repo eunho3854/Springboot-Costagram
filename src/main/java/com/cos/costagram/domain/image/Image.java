@@ -18,6 +18,7 @@ import com.cos.costagram.domain.comment.Comment;
 import com.cos.costagram.domain.likes.Likes;
 import com.cos.costagram.domain.tag.Tag;
 import com.cos.costagram.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,18 +40,22 @@ public class Image {
 	
 	private String postImageUrl;
 	
+	@JsonIgnoreProperties({"images"})
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
 	
 	// mappedBy -> DB에 Tag리스트가 생기지 않게 함.
+	@JsonIgnoreProperties({"image"})
 	@OneToMany(mappedBy = "image")
 	private List<Tag> tags;
 	
+	@JsonIgnoreProperties({"image"})
 	@OneToMany(mappedBy = "image")
 	private List<Likes> likes; // A 이미지에 홍길동, 장보고, 임꺽정 좋아요.
 	
 	// comment (댓글)
+	@JsonIgnoreProperties({"image"})
 	@OneToMany(mappedBy = "image")
 	private List<Comment> comments;
 	
