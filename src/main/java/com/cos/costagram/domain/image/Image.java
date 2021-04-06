@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -55,6 +56,7 @@ public class Image {
 	private List<Likes> likes; // A 이미지에 홍길동, 장보고, 임꺽정 좋아요.
 	
 	// comment (댓글)
+	@OrderBy("id DESC")  // 정렬
 	@JsonIgnoreProperties({"image"})
 	@OneToMany(mappedBy = "image")
 	private List<Comment> comments;

@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cos.costagram.domain.follow.FollowRepository;
 import com.cos.costagram.domain.user.User;
 import com.cos.costagram.domain.user.UserRepository;
-import com.cos.costagram.web.user.UserProfileRespDto;
+import com.cos.costagram.web.dto.user.UserProfileRespDto;
 
 import lombok.RequiredArgsConstructor;
 
